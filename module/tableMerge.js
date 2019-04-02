@@ -19,7 +19,7 @@ layui.define(['table'], function (exports) {
                 $main = $(tableBox.children('.layui-table-body').children('table').children('tbody').children('tr').toArray().reverse()),
                 $fixLeft = $(tableBox.children('.layui-table-fixed-l').children('.layui-table-body').children('table').children('tbody').children('tr').toArray().reverse()),
                 $fixRight = $(tableBox.children('.layui-table-fixed-r').children('.layui-table-body').children('table').children('tbody').children('tr').toArray().reverse()),
-                cols = myTable.cols[0], mergeRecord = {};
+                cols = myTable.cols[myTable.cols.length-1], mergeRecord = {};
 
             for (let i = 0; i < cols.length; i++) {
                 var item3 = cols[i], field=item3.field;
