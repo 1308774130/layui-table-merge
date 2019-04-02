@@ -97,6 +97,7 @@ table.render({
         <b>tableMerge.render(this)</b>
     }
 });
+
             </pre>
         </div>
     </div>
@@ -136,7 +137,79 @@ layui.config({
     layui.use(['table','element','tableMerge'], function () {
         var table = layui.table,
             tableMerge = layui.tableMerge;
+//         复合表头的第二中写法
+table.render({
+        elem: '#ztqk_table',
+        method:'post',
+      //   height:305,
+        cols: [[
+            {title:'主要终端指标',colspan:2,rowspan:2,merge:[0,1],align:'center'},
+            {title:'累计销量（万台）',colspan:2,align:'center'},
+            {title:'当月销量（万台）',colspan:2,align:'center'},
 
+        ],[
+          {title:'终端类型',merge: true,field:'zd_type',align:'center',width:'5%'},
+          {field:'zd_name',align:'center',width:'10%'},
+          {title:'截止当月',field:'dy',align:'center'},
+          {title:'去年同期',field:'qntq',align:'center'},
+          {title:'本年',field:'bn',align:'center'},
+          {title:'去年',field:'qn',align:'center'},
+
+        ]],
+        done : function(res, curr, count) {
+            tableMerge.render(this);
+        },
+        data:[{
+            'zd_type':'终端销量',
+            'zd_name':'终端销量',
+            'dy':1392.62,
+            'qntq':1425.33,
+            'bn':102.59,
+            'qn':120.89
+        },{
+            'zd_type':'终端类型',
+            'zd_name':'4G终端',
+            'dy':1392.62,
+            'qntq':1425.33,
+            'bn':102.59,
+            'qn':120.89
+        },{
+            'zd_type':'终端类型',
+            'zd_name':'2G终端',
+            'dy':1392.62,
+            'qntq':1425.33,
+            'bn':102.59,
+            'qn':120.89
+        },{
+            'zd_type':'分价值段',
+            'zd_name':'3000元以上终端',
+            'dy':1392.62,
+            'qntq':1425.33,
+            'bn':102.59,
+            'qn':120.89
+        },{
+            'zd_type':'分价值段',
+            'zd_name':'1200-3000元终端',
+            'dy':1392.62,
+            'qntq':1425.33,
+            'bn':102.59,
+            'qn':120.89
+        },{
+            'zd_type':'分价值段',
+            'zd_name':'700-1200终端',
+            'dy':1392.62,
+            'qntq':1425.33,
+            'bn':102.59,
+            'qn':120.89
+        },{
+            'zd_type':'分价值段',
+            'zd_name':'0-700终端',
+            'dy':1392.62,
+            'qntq':1425.33,
+            'bn':102.59,
+            'qn':120.89
+        }]
+})
         /**
          * 自动合并表格
          */
